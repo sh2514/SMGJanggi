@@ -5,14 +5,14 @@
         versionCode = "7"
         version     = "1.0.0" >
 
-    <name>Gaming Platform</name>
+    <name>Janggi</name>
 
     <description>
-        A multiplayer game platform.
+        A Korean multiplayer board game.
     </description>
 
-    <author href="www.nyu.edu" email="AUTHOR_NAME@gmail.com">
-        AUTHOR NAME
+    <author href="" email="sh2514shu0018@gmail.com">
+        Shikuan Huang
     </author>
 
     <!--
@@ -23,7 +23,7 @@
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="3.5.0" />          <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version"           value="3.6.3" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
@@ -40,7 +40,7 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
     <icon src="icon.png" />
-    <gap:splash src="icon.png" />
+    <gap:splash src="splash.png" />
 
     <!--
         Define access to external domains.

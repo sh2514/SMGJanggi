@@ -1,4 +1,1 @@
-SMGJanggi
-=========
-
-Janggi inside the platform
+xiangbo was here
