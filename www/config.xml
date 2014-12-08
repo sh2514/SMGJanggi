@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.gaming_platform.Platform"
+        id          = "com.gaming_platform.janggi"
         versionCode = "7"
         version     = "1.0.0" >
 
@@ -11,7 +11,7 @@
         A Korean multiplayer board game.
     </description>
 
-    <author href="" email="shu0018sh2514@gmail.com">
+    <author href="https://github.com/sh2514" email="shu0018sh2514@gmail.com">
         Shikuan Huang
     </author>
 
@@ -40,7 +40,7 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
     <icon src="icon.png" />
-    <gap:splash src="img/splash.png" />
+    <gap:splash src="splash.png" />
 
     <!--
         Define access to external domains.
