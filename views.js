@@ -860,7 +860,9 @@ myApp.controller('resultsCtrl', function ($routeParams, $location, $scope, $root
         else
             $scope.totalTies = 0;
 
-        if ($scope.winPercent = $scope.totalWins / ($scope.totalWins + $scope.totalLoses + $scope.totalTies) * 100) { }
+        if ($scope.winPercent = $scope.totalWins / ($scope.totalWins + $scope.totalLoses + $scope.totalTies) * 100) {
+            $scope.winPercent = Math.round($scope.winPercent);
+        }
         else
             $scope.winPercent = 0;
     }
