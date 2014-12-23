@@ -546,7 +546,6 @@ myApp.controller('gameCtrl',
     }
 
     function checkGameUpdates() {
-        alert("CHECKING UPDATES");
     	if($scope.selectedGame){
         var resMatchObj = [{
           getPlayerMatches: {
