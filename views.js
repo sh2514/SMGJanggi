@@ -370,7 +370,13 @@ myApp.controller('gameCtrl',
     AutoGameRefresher = $interval(function() {
       checkGameUpdates()
     }, 10000);
-
+    
+    function stopAutoGameRefresher() {
+        if (angular.isDefined(AutoGameRefresher)) {
+            $interval.cancel(AutoGameRefresher);
+            AutoGameRefresher = undefined;
+        }
+    };
 
     function updateOpponent() {
       if ($scope.playMode == "playAgainstTheComputer") {
@@ -540,6 +546,7 @@ myApp.controller('gameCtrl',
     }
 
     function checkGameUpdates() {
+        alert("CHECKING UPDATES");
     	if($scope.selectedGame){
         var resMatchObj = [{
           getPlayerMatches: {
@@ -774,6 +781,7 @@ myApp.controller('gameCtrl',
             window.regid = e.regid;
             $rootScope.regid = e.regid;
             registerDevice();
+            stopAutoGameRefresher();    // stops automatically asking server for updates every 10 seconds.
           }
         break;
           case 'message':
