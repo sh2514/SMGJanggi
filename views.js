@@ -813,6 +813,14 @@ myApp.controller('resultsCtrl', function ($routeParams, $location, $scope, $root
       height = $window.innerHeight * (528 / 320);
     }
     */
+
+    $scope.winLoseAnnouncement = "...waiting for server";
+    $scope.W = 0;
+    $scope.L = 0;
+    $scope.T = 0;
+    $scope.playerRank = 0;
+    $scope.winPercent = 0;
+
     $scope.goBackToMenu = function () {
       $modalInstance.close();
       $location.path('/');
@@ -847,6 +855,11 @@ myApp.controller('resultsCtrl', function ($routeParams, $location, $scope, $root
         sendServerMessage('GET_PLAYERSTATS', resPlayerStatsObj);
     }
 
+    // Account for the delay in communication between clients and server
+    function delayCall() {
+        setTimeout(getPlayerStats, 2000);
+    }
+
     function updatePlayerStats(obj)
     {
         var playerStats = obj[0].playerGameStats;
@@ -874,9 +887,9 @@ myApp.controller('resultsCtrl', function ($routeParams, $location, $scope, $root
             $scope.winPercent = 0;
     }
 
-    getPlayerStats();
+    //getPlayerStats();
+    delayCall();
     var matchState = stateService.getMatchState();
-    $scope.winLoseAnnouncement = "NOT ASSIGNED";
 
     if ((interComService.getMode() === "playWhite" && matchState.endMatchScores[0] === 1)
         || (interComService.getMode() === "playBlack" && matchState.endMatchScores[1] === 1)
