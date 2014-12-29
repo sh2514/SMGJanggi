@@ -639,22 +639,37 @@ myApp.controller('gameCtrl',
               var i;
               for (i = 0; i < matchObj.length; i++) {
                   if (myMatchId === matchObj[i].matchId) {
-                      var movesObj = matchObj[i].history.moves;
-                      var stateObj = matchObj[i].history.stateAfterMoves;
-                      numOfMove = movesObj.length - 1;
-                      theMatch = matchObj[i];
-                      interComService.setMatch(theMatch);
-                      updateOpponent();
-                      if (myLastMove === undefined || !isEqual(myLastMove, movesObj[movesObj.length - 1])) {
+                      if (matchObj[i].endMatchReason && matchObj[i].endMatchReason === 'DISMISSED' && matchObj[i].endMatchScores) {
+                          var movesObj = [{ endMatch: { endMatchScores: matchObj[i].endMatchScores } }];
+                          var stateObj = matchObj[i].history.stateAfterMoves;
                           var data;
                           if (stateObj.length >= 2) {
-                              data = formatStateObject(movesObj[movesObj.length - 1], stateObj[stateObj.length - 1], stateObj[stateObj.length - 2]);
+                              data = formatStateObject(movesObj, stateObj[stateObj.length - 1], stateObj[stateObj.length - 2]);
                           }
                           else {
-                              data = formatStateObject(movesObj[movesObj.length - 1], stateObj[stateObj.length - 1], null);
+                              data = formatStateObject(movesObj, stateObj[stateObj.length - 1], null);
                           }
                           stateService.gotBroadcastUpdateUi(data);
-                          myLastMove = movesObj[movesObj.length - 1];
+                      }
+                      else {
+
+                          var movesObj = matchObj[i].history.moves;
+                          var stateObj = matchObj[i].history.stateAfterMoves;
+                          numOfMove = movesObj.length - 1;
+                          theMatch = matchObj[i];
+                          interComService.setMatch(theMatch);
+                          updateOpponent();
+                          if (myLastMove === undefined || !isEqual(myLastMove, movesObj[movesObj.length - 1])) {
+                              var data;
+                              if (stateObj.length >= 2) {
+                                  data = formatStateObject(movesObj[movesObj.length - 1], stateObj[stateObj.length - 1], stateObj[stateObj.length - 2]);
+                              }
+                              else {
+                                  data = formatStateObject(movesObj[movesObj.length - 1], stateObj[stateObj.length - 1], null);
+                              }
+                              stateService.gotBroadcastUpdateUi(data);
+                              myLastMove = movesObj[movesObj.length - 1];
+                          }
                       }
                   }
               }

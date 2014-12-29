@@ -15,7 +15,7 @@
       console.log('You can pass this ServerApi message for creating a new user:');
       console.log('[{socialLogin: {accessToken: "' + response.authResponse.accessToken + '", uniqueType: "F"}}]');
       console.log('Or this message to merge with an existing user by passing myPlayerId+accessSignature:');
-      console.log('[{socialLogin: {myPlayerId: "5660460074401792", accessSignature: "dbc116314cb079b3f139f7ea3838bfad", accessToken: "' + response.authResponse.accessToken + '", uniqueType: "F"}}]');
+      console.log('[{socialLogin: {myPlayerId: "1567552333481702", accessSignature: "dbc116314cb079b3f139f7ea3838bfad", accessToken: "' + response.authResponse.accessToken + '", uniqueType: "F"}}]');
       testAPI();
     } else if (response.status === 'not_authorized') {
       console.log("The person is logged into Facebook, but not your app.");
@@ -33,7 +33,7 @@
   }
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '566372370173048',
+      appId      : '1567552333481702',
       cookie     : true,  // enable cookies to allow the server to access
                           // the session
       xfbml      : true,  // parse social plugins on this page
